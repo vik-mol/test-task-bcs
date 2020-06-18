@@ -23,12 +23,16 @@ export default class Carousel extends Component {
     }
 
 
+    // componentDidUpdate(){
+    //     console.log('componentDidUpdate')
+    // }
 
     checkScreenWidth = () => {
         
         const getWidth = () => {
             const w = window.innerWidth;
-            const mobail = this.state.isMobail
+            const mobail = this.state.isMobail;
+            
             if (w < 769 && !mobail) {
                 this.setState({
                     isMobail: !mobail
@@ -50,11 +54,9 @@ export default class Carousel extends Component {
         this.checkScreenWidth();
         this.getCurrentIndex();
     }
-
+    
 
     render() {
-
-
         const sliderBut = [];
         const { slidData, currentIndex, isMobail } = this.state;
         const slids = slidData.map((slid, index) => {
@@ -74,6 +76,7 @@ export default class Carousel extends Component {
             adaptiveHeight: true,
             dotsClass: 'slider__padination-wpapper',
             afterChange: this.getCurrentIndex,
+            beforeChange: this.getCurrentIndex,
             appendDots: dots => (
                 <div>
                     <div className="container">
