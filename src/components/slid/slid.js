@@ -3,7 +3,7 @@ import './slid.sass';
 
 const Img = (props) => {
     const bacImg = {
-        backgroundImage: `url(images/${props.name}`
+        backgroundImage: `url(${props.name}`
     }
     return (
       
